@@ -26,7 +26,6 @@ public class ContatoController {
         this.contato = contato;
     }
 
-
     @GetMapping("/")
     public List<Contato> listarTodos(){
         return contato.buscarTodos();
@@ -36,6 +35,7 @@ public class ContatoController {
     public Contato buscarPorId(@PathVariable Long id){
         return contato.buscarPorId(id);
     }
+
 
     @PostMapping("/")
     public void adicionar(@RequestBody Contato c){

@@ -26,6 +26,19 @@ public class Endereco {
 	private String ddd;
 	private String siafi;
 
+    public Endereco(String cep, String logradouro, String bairro, String localidade, String uf, String ibge, String ddd, String siafi) {
+        this.cep = cep;
+        this.logradouro = logradouro;
+        this.bairro = bairro;
+        this.localidade = localidade;
+        this.uf = uf;
+        this.ibge = ibge;
+        this.ddd = ddd;
+        this.siafi = siafi;
+    }
+
+    public Endereco() {
+    }
 
     public String getCep() {
         return cep;

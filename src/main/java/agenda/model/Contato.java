@@ -1,11 +1,17 @@
 package agenda.model;
 
+import org.hibernate.engine.jdbc.Size;
+import org.hibernate.query.criteria.internal.expression.function.AggregationFunction;
+import org.springframework.format.annotation.NumberFormat;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+
+import static org.hibernate.query.criteria.internal.expression.function.AggregationFunction.*;
 
 @Entity
 public class Contato {
@@ -19,18 +25,18 @@ public class Contato {
 
     private String sobreNome;
 
-    private Integer numero;
+    private Long telefone;
 
     @ManyToOne
     private Endereco endereco;
 
     public Contato(){}
 
-    public Contato(Long id, String nome, String sobreNome, Integer numero, Endereco endereco) {
+    public Contato(Long id, String nome, String sobreNome, Long telefone, Endereco endereco) {
         this.id = id;
         this.nome = nome;
         this.sobreNome = sobreNome;
-        this.numero = numero;
+        this.telefone = telefone;
         this.endereco = endereco;
     }
 
@@ -58,12 +64,12 @@ public class Contato {
         this.sobreNome = sobreNome;
     }
 
-    public Integer getNumero() {
-        return numero;
+    public Long getTelefone() {
+        return telefone;
     }
 
-    public void setNumero(Integer numero) {
-        this.numero = numero;
+    public void setTelefone(Long telefone) {
+        this.telefone = telefone;
     }
 
     public Endereco getEndereco() {

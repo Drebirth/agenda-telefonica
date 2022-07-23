@@ -42,8 +42,7 @@ public class ContatoIMP implements ContatoService {
 
     @Override
     public void adicionar(Contato c) {
-        salvarContato(c);
-        
+            salvarContato(c);
     }
 
     @Override
@@ -57,7 +56,12 @@ public class ContatoIMP implements ContatoService {
 
     @Override
     public void deletar(Long id) {
-        contato.deleteById(id);
+        if (contato.existsById(id)){
+            contato.deleteById(id);
+        }else {
+            throw new RuntimeException("Contato não existe");
+        }
+
         
     }
 
@@ -70,6 +74,7 @@ public class ContatoIMP implements ContatoService {
         });
         c.setEndereco(endereco1);
         contato.save(c);
+        }
+
     }
-    
-}
+
