@@ -24,6 +24,16 @@ public class Contato {
     @ManyToOne
     private Endereco endereco;
 
+    public Contato(){}
+
+    public Contato(Long id, String nome, String sobreNome, Integer numero, Endereco endereco) {
+        this.id = id;
+        this.nome = nome;
+        this.sobreNome = sobreNome;
+        this.numero = numero;
+        this.endereco = endereco;
+    }
+
     public Long getId() {
         return id;
     }

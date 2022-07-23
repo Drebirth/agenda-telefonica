@@ -22,19 +22,29 @@ public class ContatoController {
     @Autowired
     private ContatoIMP contato;
 
+    public ContatoController(ContatoIMP contato){
+        this.contato = contato;
+    }
+
+
     @GetMapping("/")
     public List<Contato> listarTodos(){
         return contato.buscarTodos();
     }
 
+    @GetMapping("/{id}")
+    public Contato buscarPorId(@PathVariable Long id){
+        return contato.buscarPorId(id);
+    }
+
     @PostMapping("/")
-    public void adicionar(Contato c){
+    public void adicionar(@RequestBody Contato c){
         contato.adicionar(c);
     }
 
     @PutMapping("/{id}")
-    public Contato alterar(@PathVariable Long id, @RequestBody Contato c){
-        return contato.atualizar(id, c);
+    public void alterar(@PathVariable Long id, @RequestBody Contato c){
+         contato.atualizar(id, c);
     }
 
     @DeleteMapping("/{id}")
